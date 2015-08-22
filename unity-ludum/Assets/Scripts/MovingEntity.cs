@@ -21,5 +21,11 @@ public class MovingEntity : MonoBehaviour {
 	protected void Move () {
 		Move(1f);
 	}
+
+    void OnTriggerStay(Collider other) {
+        if (other.tag == "Wall") {
+            transform.position -= currentVelocity.normalized * Time.deltaTime * 8;
+        }
+    }
 	
 }
