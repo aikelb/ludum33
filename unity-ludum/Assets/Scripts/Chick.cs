@@ -5,12 +5,10 @@ public class Chick : MonoBehaviour {
 
     public static event FXManager.FxEvent OnDeath;
 
-    void ReceiveDamage() {
-        //GetComponent<Animator>().Play("Death");
+    void OnDestroy() {
         SendMessageUpwards("SetChickensAngry", SendMessageOptions.RequireReceiver);
         if (OnDeath != null) {
             OnDeath(transform.position);
         }
-        Destroy(this);
     }
 }
