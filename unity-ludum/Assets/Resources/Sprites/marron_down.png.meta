@@ -1,13 +1,14 @@
 fileFormatVersion: 2
-guid: 284f96064de1dc74aa87b2b530023fdf
-timeCreated: 1440257913
+guid: 7feb1106d52f0b944942c6a831a428e2
+timeCreated: 1440259437
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: blanca_ataque_down_0
-    21300002: blanca_ataque_down_1
-    21300004: blanca_ataque_down_2
-    21300006: blanca_ataque_down_3
+    21300000: marron_down_0
+    21300002: marron_down_1
+    21300004: marron_down_2
+    21300006: marron_down_3
+    21300008: marron_down_4
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -53,43 +54,53 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: blanca_ataque_down_0
+    - name: marron_down_0
       rect:
         serializedVersion: 2
-        x: 18
-        y: 16
+        x: 16
+        y: 13
+        width: 31
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: marron_down_1
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 14
+        width: 29
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: marron_down_2
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 13
         width: 27
-        height: 38
+        height: 41
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: blanca_ataque_down_1
+    - name: marron_down_3
       rect:
         serializedVersion: 2
-        x: 76
-        y: 6
-        width: 40
-        height: 51
+        x: 209
+        y: 14
+        width: 29
+        height: 39
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: blanca_ataque_down_2
+    - name: marron_down_4
       rect:
         serializedVersion: 2
-        x: 141
-        y: 9
-        width: 34
-        height: 46
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: blanca_ataque_down_3
-      rect:
-        serializedVersion: 2
-        x: 210
-        y: 16
-        width: 27
-        height: 38
+        x: 272
+        y: 13
+        width: 31
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
