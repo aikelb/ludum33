@@ -116,7 +116,13 @@ public class Chicken : MovingEntity {
 	
 	IEnumerator Angry () {
 		while (state == states.Angry) {
-			yield return 0;
+			Vector3 towardsPlayer = player.position - transform.position;
+			
+			myDesiredOrientation = towardsPlayer.normalized;
+			desiredOrientation = myDesiredOrientation;
+			Move(angrySpeedModifier);
+			
+			yield return new WaitForFixedUpdate();
 		}
 	}
 	
