@@ -1,14 +1,13 @@
 fileFormatVersion: 2
-guid: d8ccbca4649f7194dadcfbb138d4f706
-timeCreated: 1440251784
+guid: 284f96064de1dc74aa87b2b530023fdf
+timeCreated: 1440256761
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: pollodown_0
-    21300002: pollodown_1
-    21300004: pollodown_2
-    21300006: pollodown_3
-    21300008: pollodown_4
+    21300000: blanca_ataque_down_0
+    21300002: blanca_ataque_down_1
+    21300004: blanca_ataque_down_2
+    21300006: blanca_ataque_down_3
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -54,53 +53,43 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: pollodown_0
+    - name: blanca_ataque_down_0
       rect:
         serializedVersion: 2
-        x: 16
-        y: 13
-        width: 31
-        height: 40
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: pollodown_1
-      rect:
-        serializedVersion: 2
-        x: 81
-        y: 14
-        width: 29
-        height: 40
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: pollodown_2
-      rect:
-        serializedVersion: 2
-        x: 146
-        y: 13
+        x: 18
+        y: 16
         width: 27
-        height: 41
+        height: 38
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: pollodown_3
+    - name: blanca_ataque_down_1
       rect:
         serializedVersion: 2
-        x: 209
-        y: 14
-        width: 29
-        height: 39
+        x: 76
+        y: 6
+        width: 40
+        height: 51
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: pollodown_4
+    - name: blanca_ataque_down_2
       rect:
         serializedVersion: 2
-        x: 272
-        y: 13
-        width: 31
-        height: 40
+        x: 141
+        y: 9
+        width: 34
+        height: 46
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: blanca_ataque_down_3
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 16
+        width: 27
+        height: 38
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
