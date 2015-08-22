@@ -4,6 +4,7 @@ using System.Collections;
 public class Chicken : MovingEntity {
 
 	public static event FXManager.FxEvent OnDeath;
+	private Animator animatorChicken;
 
 	enum states {
 		Idle,
@@ -34,6 +35,10 @@ public class Chicken : MovingEntity {
 	
 	void OnValidate () {
 		player = FindObjectOfType<Player>().transform;
+	}
+
+	void Awake () {
+		animatorChicken = GetComponent<Animator>();
 	}
 	
 	void Start () {
@@ -72,16 +77,22 @@ public class Chicken : MovingEntity {
 	}
 	
 	void DesireOrientation () {
-		if (Random.value < 0.5f)
+		if (Random.value < 0.5f) {
 			myDesiredOrientation += Vector3.up;
-		else if (Random.value < 0.75f)
+			animatorChicken.Play ("Up");
+		} else if (Random.value < 0.75f) {
 			myDesiredOrientation += Vector3.down;
-			
-		if (Random.value < 0.5f)
+			animatorChicken.Play ("Down");
+		}
+
+		if (Random.value < 0.5f) {
 			myDesiredOrientation += Vector3.left;
-		else if (Random.value < 0.75f)
+			animatorChicken.Play ("Left");
+		} else if (Random.value < 0.75f) {
 			myDesiredOrientation += Vector3.right;
-		
+			animatorChicken.Play ("Right");
+		}
+
 		myDesiredOrientation.Normalize();
 	}
 	
