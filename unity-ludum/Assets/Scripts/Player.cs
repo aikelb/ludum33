@@ -18,7 +18,7 @@ public class Player : MovingEntity {
 	void ReadInput () {
 		if (Input.GetKey(KeyCode.W)) {
 			desiredOrientation += Vector3.up;
-			animatorPlayer.Play ("Up");
+			animatorPlayer.Play("Up");
 		}
 		if (Input.GetKey(KeyCode.S)) {
 			desiredOrientation += Vector3.down;
@@ -26,11 +26,14 @@ public class Player : MovingEntity {
 		}
 		if (Input.GetKey(KeyCode.A)) {
 			desiredOrientation += Vector3.left;
-			animatorPlayer.Play ("Left");
+			animatorPlayer.Play("Left");
 		}
 		if (Input.GetKey(KeyCode.D)) {
 			desiredOrientation += Vector3.right;
-			animatorPlayer.Play ("Right");
+			animatorPlayer.Play("Right");
+		}
+		if (Input.GetKey(KeyCode.Space)) {
+			animatorPlayer.Play("Attack");
 		}
 		desiredOrientation.Normalize();
 	}
