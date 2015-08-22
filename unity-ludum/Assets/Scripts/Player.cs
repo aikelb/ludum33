@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Player : MovingEntity {
 
-	Animator animatorPlayer;
+	private Animator animatorPlayer;
 
 	void Awake () {
 		desiredOrientation = currentVelocity = Vector3.zero;
