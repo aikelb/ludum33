@@ -135,15 +135,23 @@ public class Chicken : MovingEntity {
 	}
 
     public void PlayerKillChick() {
-        Debug.Log("PlayerKillChick");
+        state = states.Angry;
     }
 	
     public void PlayerInsideNest() {
-        Debug.Log("PlayerInsideNest");
+        if (state != states.Angry) {
+			state = states.Chasing;
+			alert = true;
+		}
     }
 
     public void PlayerExitNest() {
-        Debug.Log("PlayerExitNest");
+        alert = false;
     }
+	
+	void OnDestroy () {
+		if (OnDeath != null)
+			OnDeath(transform.position);
+	}
 	
 }
