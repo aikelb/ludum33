@@ -112,5 +112,17 @@ public class Chicken : MovingEntity {
 			}
 		}
 	}
+
+    public void PlayerKillChick() {
+        Debug.Log("PlayerKillChick");
+    }
+	
+    public void PlayerInsideNest() {
+        Debug.Log("PlayerInsideNest");
+    }
+
+    public void PlayerExitNest() {
+        Debug.Log("PlayerExitNest");
+    }
 	
 }
