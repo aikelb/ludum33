@@ -3,8 +3,11 @@ using System.Collections;
 
 public class Player : MovingEntity {
 
+	Animator animatorPlayer;
+
 	void Awake () {
 		desiredOrientation = currentVelocity = Vector3.zero;
+		animatorPlayer = GetComponent<Animator>();
 	}
 	
 	void Update () {
@@ -13,14 +16,22 @@ public class Player : MovingEntity {
 	}
 	
 	void ReadInput () {
-		if (Input.GetKey(KeyCode.W))
+		if (Input.GetKey(KeyCode.W)) {
 			desiredOrientation += Vector3.up;
-		if (Input.GetKey(KeyCode.S))
+			animatorPlayer.Play ("Up");
+		}
+		if (Input.GetKey(KeyCode.S)) {
 			desiredOrientation += Vector3.down;
-		if (Input.GetKey(KeyCode.A))
+			animatorPlayer.Play("Down");
+		}
+		if (Input.GetKey(KeyCode.A)) {
 			desiredOrientation += Vector3.left;
-		if (Input.GetKey(KeyCode.D))
+			animatorPlayer.Play ("Left");
+		}
+		if (Input.GetKey(KeyCode.D)) {
 			desiredOrientation += Vector3.right;
+			animatorPlayer.Play ("Right");
+		}
 		desiredOrientation.Normalize();
 	}
 	
