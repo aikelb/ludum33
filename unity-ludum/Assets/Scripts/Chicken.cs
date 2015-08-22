@@ -48,10 +48,13 @@ public class Chicken : MovingEntity {
 	}
 	
 	IEnumerator Idle () {
-		while (state == states.Idle) {
-			yield return new WaitForSeconds(Random.Range(0.5f, 2f));
-			state = states.Wandering;
+		float elapsedTime = 0;
+		float waitTime = Random.Range(0.5f, 2f);
+		while (state == states.Idle && elapsedTime < waitTime) {
+			elapsedTime += Time.deltaTime;
+			yield return new WaitForFixedUpdate();
 		}
+		state = states.Wandering;
 	}
 	
 	IEnumerator Wandering () {
@@ -67,7 +70,7 @@ public class Chicken : MovingEntity {
 				
 			desiredOrientation = myDesiredOrientation;
 			Move();
-			yield return 0;
+			yield return new WaitForFixedUpdate();
 		}
 	}
 	
@@ -89,13 +92,14 @@ public class Chicken : MovingEntity {
 		while (state == states.Chasing) {
 			Vector3 towardsPlayer = player.position - transform.position;
 			
+			if (!alert && towardsPlayer.magnitude > chaseMaxDistance)
+				state = states.Idle;
+			
 			myDesiredOrientation = towardsPlayer.normalized;
 			desiredOrientation = myDesiredOrientation;
 			Move(chaseSpeedModifier);
 			
-			if (!alert && towardsPlayer.magnitude > chaseMaxDistance)
-				state = states.Idle;
-			yield return 0;
+			yield return new WaitForFixedUpdate();
 		}
 	}
 	
