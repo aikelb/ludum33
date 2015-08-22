@@ -16,6 +16,9 @@ public class Player : MovingEntity {
 	}
 	
 	void ReadInput () {
+		if (!Input.anyKey) {
+			animatorPlayer.Play("Idle");
+		}
 		if (Input.GetKey(KeyCode.W)) {
 			desiredOrientation += Vector3.up;
 			animatorPlayer.Play("Up");
