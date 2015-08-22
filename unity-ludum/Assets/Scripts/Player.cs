@@ -1,15 +1,27 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Player : MonoBehaviour {
+public class Player : MovingEntity {
 
-	// Use this for initialization
-	void Start () {
-	
+	void Awake () {
+		desiredOrientation = currentVelocity = Vector3.zero;
 	}
 	
-	// Update is called once per frame
 	void Update () {
-	
+		ReadInput();
+		Move();
 	}
+	
+	void ReadInput () {
+		if (Input.GetKey(KeyCode.W))
+			desiredOrientation += Vector3.up;
+		if (Input.GetKey(KeyCode.S))
+			desiredOrientation += Vector3.down;
+		if (Input.GetKey(KeyCode.A))
+			desiredOrientation += Vector3.left;
+		if (Input.GetKey(KeyCode.D))
+			desiredOrientation += Vector3.right;
+		desiredOrientation.Normalize();
+	}
+	
 }
