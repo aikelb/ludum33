@@ -2,6 +2,8 @@
 using System.Collections;
 
 public class Player : MovingEntity {
+	
+	public static event FXManager.FxEvent OnDeath;
 
 	private Animator animatorPlayer;
 
@@ -36,6 +38,11 @@ public class Player : MovingEntity {
 			animatorPlayer.Play("Attack");
 		}
 		desiredOrientation.Normalize();
+	}
+	
+	void OnDestroy () {
+		if (OnDeath != null)
+			OnDeath(transform.position);
 	}
 	
 }

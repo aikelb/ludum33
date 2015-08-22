@@ -149,4 +149,9 @@ public class Chicken : MovingEntity {
         alert = false;
     }
 	
+	void OnDestroy () {
+		if (OnDeath != null)
+			OnDeath(transform.position);
+	}
+	
 }
