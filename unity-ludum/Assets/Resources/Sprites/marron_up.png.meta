@@ -1,13 +1,15 @@
 fileFormatVersion: 2
-guid: 284f96064de1dc74aa87b2b530023fdf
-timeCreated: 1440257913
+guid: 12fb92681febc6d45928feb4f8f5a182
+timeCreated: 1440259471
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: blanca_ataque_down_0
-    21300002: blanca_ataque_down_1
-    21300004: blanca_ataque_down_2
-    21300006: blanca_ataque_down_3
+    21300000: marron_up_0
+    21300002: marron_up_1
+    21300004: marron_up_2
+    21300006: marron_up_3
+    21300008: marron_up_4
+    21300010: marron_up_5
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -53,43 +55,63 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: blanca_ataque_down_0
+    - name: marron_up_0
       rect:
         serializedVersion: 2
-        x: 18
-        y: 16
+        x: 19
+        y: 12
+        width: 28
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: marron_up_1
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 12
+        width: 28
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: marron_up_2
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 14
         width: 27
-        height: 38
+        height: 41
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: blanca_ataque_down_1
-      rect:
-        serializedVersion: 2
-        x: 76
-        y: 6
-        width: 40
-        height: 51
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: blanca_ataque_down_2
-      rect:
-        serializedVersion: 2
-        x: 141
-        y: 9
-        width: 34
-        height: 46
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: blanca_ataque_down_3
+    - name: marron_up_3
       rect:
         serializedVersion: 2
         x: 210
-        y: 16
+        y: 13
+        width: 28
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: marron_up_4
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 12
+        width: 29
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: marron_up_5
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 14
         width: 27
-        height: 38
+        height: 41
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

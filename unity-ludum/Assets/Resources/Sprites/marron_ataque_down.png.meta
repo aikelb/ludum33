@@ -1,9 +1,13 @@
 fileFormatVersion: 2
 guid: e5497d26d42943e4c8ad3cabfaf66849
-timeCreated: 1440259315
+timeCreated: 1440259407
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: marron_ataque_down_0
+    21300002: marron_ataque_down_1
+    21300004: marron_ataque_down_2
+    21300006: marron_ataque_down_3
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -26,18 +30,18 @@ TextureImporter:
   cubemapConvolutionSteps: 8
   cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
-  textureFormat: -1
+  textureFormat: -3
   maxTextureSize: 2048
   textureSettings:
-    filterMode: -1
-    aniso: -1
+    filterMode: 0
+    aniso: 16
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -48,7 +52,47 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: marron_ataque_down_0
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 16
+        width: 27
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: marron_ataque_down_1
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 6
+        width: 40
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: marron_ataque_down_2
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 9
+        width: 34
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: marron_ataque_down_3
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 16
+        width: 27
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
   assetBundleName: 
