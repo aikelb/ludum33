@@ -1,9 +1,14 @@
 fileFormatVersion: 2
 guid: 09277c68077f0654f8ca539f21880625
-timeCreated: 1440256691
+timeCreated: 1440258203
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: blanca_down_0
+    21300002: blanca_down_1
+    21300004: blanca_down_2
+    21300006: blanca_down_3
+    21300008: blanca_down_4
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -29,7 +34,7 @@ TextureImporter:
   textureFormat: -3
   maxTextureSize: 2048
   textureSettings:
-    filterMode: -1
+    filterMode: 0
     aniso: 16
     mipBias: -1
     wrapMode: 1
@@ -43,12 +48,62 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: .5, y: .5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 10
   alphaIsTransparency: 1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: blanca_down_0
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 13
+        width: 31
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: blanca_down_1
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 14
+        width: 29
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: blanca_down_2
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 13
+        width: 27
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: blanca_down_3
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 14
+        width: 29
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: blanca_down_4
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 13
+        width: 31
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
   assetBundleName: 

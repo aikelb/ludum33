@@ -1,9 +1,15 @@
 fileFormatVersion: 2
 guid: 5d7726ed6b01e0044be62c269d9fc2f3
-timeCreated: 1440256697
+timeCreated: 1440258223
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: blanca_up_0
+    21300002: blanca_up_1
+    21300004: blanca_up_2
+    21300006: blanca_up_3
+    21300008: blanca_up_4
+    21300010: blanca_up_5
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -26,29 +32,89 @@ TextureImporter:
   cubemapConvolutionSteps: 8
   cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
-  textureFormat: -1
+  textureFormat: -3
   maxTextureSize: 2048
   textureSettings:
-    filterMode: -1
-    aniso: -1
+    filterMode: 0
+    aniso: 16
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: .5, y: .5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 10
   alphaIsTransparency: 1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: blanca_up_0
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 12
+        width: 28
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: blanca_up_1
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 12
+        width: 28
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: blanca_up_2
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 14
+        width: 27
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: blanca_up_3
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 13
+        width: 28
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: blanca_up_4
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 12
+        width: 29
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: blanca_up_5
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 14
+        width: 27
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
   assetBundleName: 
