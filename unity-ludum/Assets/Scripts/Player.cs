@@ -1,11 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Player : MonoBehaviour {
-
-	Vector3 desiredOrientation;
-	Vector3 currentVelocity;
-	public float movementSpeed;
+public class Player : MovingEntity {
 
 	void Awake () {
 		desiredOrientation = currentVelocity = Vector3.zero;
@@ -13,9 +9,7 @@ public class Player : MonoBehaviour {
 	
 	void Update () {
 		ReadInput();
-		currentVelocity = currentVelocity * 0.8f + 0.2f * (desiredOrientation * movementSpeed * Time.deltaTime);
-		transform.Translate(currentVelocity);
-		desiredOrientation = Vector3.zero;
+		Move();
 	}
 	
 	void ReadInput () {
