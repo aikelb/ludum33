@@ -5,13 +5,16 @@ public class FXManager : MonoBehaviour {
 
 	public delegate void FxEvent(Vector3 position);
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    void OnEnable() {
+        Chick.OnDeath += Chick_OnDeath;
+    }
+
+    void OnDisable() {
+        Chick.OnDeath -= Chick_OnDeath;
+    }
+
+    void Chick_OnDeath(Vector3 position) {
+
+    }
+
 }
