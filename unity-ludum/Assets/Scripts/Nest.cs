@@ -26,7 +26,7 @@ public class Nest : MonoBehaviour {
     }
 
     void OnTriggerExit(Collider other) {
-        Debug.Log("He entrado en la zona");
+        Debug.Log("He salido de la zona");
         foreach (Chicken chicken in m_chickens) {
             chicken.PlayerExitNest();
         }
