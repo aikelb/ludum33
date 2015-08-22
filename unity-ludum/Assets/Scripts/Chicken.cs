@@ -13,6 +13,10 @@ public class Chicken : MonoBehaviour {
 	}
 	
 	states state;
+	
+	void Start () {
+		StartCoroutine(SMC());
+	}
 
 	IEnumerator SMC () {
 		while (true) {
@@ -23,6 +27,24 @@ public class Chicken : MonoBehaviour {
 	IEnumerator Idle () {
 		while (state == states.Idle) {
 			Debug.Log("Idle");
+			yield return 0;
+		}
+	}
+	
+	IEnumerator Wandering () {
+		while (state == states.Wandering) {
+			yield return 0;
+		}
+	}
+	
+	IEnumerator Chasing () {
+		while (state == states.Chasing) {
+			yield return 0;
+		}
+	}
+	
+	IEnumerator Angry () {
+		while (state == states.Angry) {
 			yield return 0;
 		}
 	}
