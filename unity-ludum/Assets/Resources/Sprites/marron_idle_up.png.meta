@@ -1,15 +1,18 @@
 fileFormatVersion: 2
-guid: 12fb92681febc6d45928feb4f8f5a182
-timeCreated: 1440355411
+guid: d10706a4e61cd974d85e86cbe5b3c5f2
+timeCreated: 1440355347
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: marron_up_0
-    21300002: marron_up_1
-    21300004: marron_up_2
-    21300006: marron_up_3
-    21300008: marron_up_4
-    21300010: marron_up_5
+    21300000: marron_idle_up_0
+    21300002: marron_idle_up_1
+    21300004: marron_idle_up_2
+    21300006: marron_idle_up_3
+    21300008: marron_idle_up_4
+    21300010: marron_idle_up_5
+    21300012: marron_idle_up_6
+    21300014: marron_idle_up_7
+    21300016: marron_idle_up_8
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -55,60 +58,90 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: marron_up_0
+    - name: marron_idle_up_0
       rect:
         serializedVersion: 2
         x: 19
-        y: 12
-        width: 28
-        height: 42
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: marron_up_1
-      rect:
-        serializedVersion: 2
-        x: 83
-        y: 12
-        width: 28
-        height: 43
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: marron_up_2
-      rect:
-        serializedVersion: 2
-        x: 147
         y: 14
         width: 27
         height: 41
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: marron_up_3
+    - name: marron_idle_up_1
       rect:
         serializedVersion: 2
-        x: 210
-        y: 13
-        width: 28
-        height: 41
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: marron_up_4
-      rect:
-        serializedVersion: 2
-        x: 274
-        y: 12
-        width: 29
+        x: 83
+        y: 14
+        width: 27
         height: 42
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: marron_up_5
+    - name: marron_idle_up_2
       rect:
         serializedVersion: 2
-        x: 339
+        x: 147
+        y: 14
+        width: 26
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: marron_idle_up_3
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 14
+        width: 25
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: marron_idle_up_4
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 14
+        width: 25
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: marron_idle_up_5
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 14
+        width: 25
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: marron_idle_up_6
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 14
+        width: 26
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: marron_idle_up_7
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 14
+        width: 27
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: marron_idle_up_8
+      rect:
+        serializedVersion: 2
+        x: 531
         y: 14
         width: 27
         height: 41
