@@ -1,15 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class NewBehaviourScript : MonoBehaviour {
+public class Peck : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    void OnTriggerEnter(Collider other) {
+        if (other.tag == "ChickenBody") {
+            other.SendMessageUpwards("ReceiveDamage", 1, SendMessageOptions.RequireReceiver);
+        }
+    }
 }
