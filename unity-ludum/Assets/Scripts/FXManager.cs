@@ -5,7 +5,9 @@ using System.Collections.Generic;
 public class FXManager : MonoBehaviour {
 
 	public delegate void FxEvent(Vector3 position);
-	
+
+    public static event ScoreManager.ScoreEvent RaiseScore;
+    	
 	int length = 10;
 	Dictionary<GameObject, ParticleSystem[]> pool;
 	Dictionary<GameObject, int> poolIndex;
@@ -69,11 +71,17 @@ public class FXManager : MonoBehaviour {
     void Chick_OnDeath(Vector3 position) {
 		PlayParticle(ChickExplosion, position);
 		PlayAudio(chickAudio);
+        if (RaiseScore != null) {
+            RaiseScore(50);
+        }
     }
 	
 	void Chicken_OnDeath (Vector3 position) {
 		PlayParticle(BrownChickenExplosion, position);
 		PlayAudio(chickenAudio);
+        if (RaiseScore != null) {
+            RaiseScore(100);
+        }
 	}
 	
 	void Player_OnDeath (Vector3 position) {
