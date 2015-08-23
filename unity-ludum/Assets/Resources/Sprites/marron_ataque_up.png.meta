@@ -1,15 +1,13 @@
 fileFormatVersion: 2
-guid: 12fb92681febc6d45928feb4f8f5a182
-timeCreated: 1440355411
+guid: ae798ed2f0b6fc046a7b614f48705b6d
+timeCreated: 1440355231
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: marron_up_0
-    21300002: marron_up_1
-    21300004: marron_up_2
-    21300006: marron_up_3
-    21300008: marron_up_4
-    21300010: marron_up_5
+    21300000: marron_ataque_up_0
+    21300002: marron_ataque_up_1
+    21300004: marron_ataque_up_2
+    21300006: marron_ataque_up_3
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -55,63 +53,43 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: marron_up_0
+    - name: marron_ataque_up_0
       rect:
         serializedVersion: 2
         x: 19
-        y: 12
-        width: 28
-        height: 42
+        y: 14
+        width: 27
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: marron_up_1
+    - name: marron_ataque_up_1
       rect:
         serializedVersion: 2
-        x: 83
-        y: 12
-        width: 28
-        height: 43
+        x: 79
+        y: 14
+        width: 38
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: marron_up_2
+    - name: marron_ataque_up_2
       rect:
         serializedVersion: 2
         x: 147
         y: 14
-        width: 27
-        height: 41
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: marron_up_3
-      rect:
-        serializedVersion: 2
-        x: 210
-        y: 13
         width: 28
-        height: 41
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: marron_up_4
-      rect:
-        serializedVersion: 2
-        x: 274
-        y: 12
-        width: 29
         height: 42
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: marron_up_5
+    - name: marron_ataque_up_3
       rect:
         serializedVersion: 2
-        x: 339
+        x: 211
         y: 14
         width: 27
-        height: 41
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
