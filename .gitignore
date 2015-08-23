@@ -11,6 +11,7 @@ Library/
 # ===================================== #
 ExportedObj/
 UnityVS/
+UnityVS.meta
 *.svd
 *.userprefs
 *.csproj
