@@ -143,8 +143,10 @@ public class Chicken : MovingEntity {
 			lastAttack = Time.time;
 			RaycastHit hit;
 			if (Physics.Raycast(transform.position, myDesiredOrientation.normalized, out hit, attackDistance)) {
-				if (hit.collider.tag == "Player")
-					hit.transform.SendMessage("ReceiveDamage", 1);
+                if (hit.collider.tag == "Player") {
+                    hit.transform.SendMessage("ReceiveDamage", 1);
+                    Debug.Log("QUITO VIDA WUAJAJAJA");
+                }
 			}
 		}
 	}
