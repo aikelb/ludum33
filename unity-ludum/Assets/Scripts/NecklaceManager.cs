@@ -5,7 +5,8 @@ using UnityEngine.UI;
 public class NecklaceManager : MonoBehaviour {
 
 	public delegate void NecklaceEvent(int picks);
-
+	public Sprite[] necklaceSprites;
+	
 	private int picksNumber;
 	private int currentPick;
 
@@ -13,6 +14,7 @@ public class NecklaceManager : MonoBehaviour {
 	void Start () {
 		picksNumber = GameObject.FindObjectsOfType<Chick>().Length;
 		currentPick = 0;
+		PrepareNecklace();
 	}
 
 	void OnEnable() {
@@ -32,6 +34,18 @@ public class NecklaceManager : MonoBehaviour {
 	}
 
 	void PrepareNecklace() {
+		for (int i = 0; i < picksNumber; i++) {
+			Image neckaceImage = gameObject.AddComponent<Image>();
+			if (i == 0) {
+				neckaceImage.sprite = necklaceSprites[0];
+			} else {
+				if (i%2 == 0) {
+					neckaceImage.sprite = necklaceSprites[1];
+				} else {
+					neckaceImage.sprite = necklaceSprites[2];
+				}
+			}
+		}
 	}
 
 	void AddPicksToNecklace(int picks) {
