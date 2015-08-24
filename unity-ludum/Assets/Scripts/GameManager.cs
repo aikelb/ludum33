@@ -32,5 +32,4 @@ public class GameManager : MonoBehaviour {
 	void Menu () {
 		Application.LoadLevel("Home");
 	}
-	
 }
