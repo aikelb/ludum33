@@ -4,6 +4,7 @@ using System.Collections;
 public class Chicken : MovingEntity {
 
 	public static event FXManager.FxEvent OnDeath;
+    public static event ScoreManager.ScoreEvent RaiseScore;
 	private Animator animatorChicken;
 
 	enum states {
@@ -150,6 +151,8 @@ public class Chicken : MovingEntity {
     }
 	
 	void OnDestroy () {
+        if (RaiseScore != null)
+            RaiseScore(50);
 		if (OnDeath != null)
 			OnDeath(transform.position);
 	}

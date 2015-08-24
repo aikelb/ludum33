@@ -9,14 +9,20 @@ public class ScoreManager : MonoBehaviour {
     int m_score = 0;
 
     void OnEnable() {
-        FXManager.RaiseScore += FXManager_RaiseScore;
+        Chicken.RaiseScore += Chicken_RaiseScore;
+        Chick.RaiseScore += Chick_RaiseScore;
     }
 
     void OnDisable() {
-        FXManager.RaiseScore += FXManager_RaiseScore;
+        Chicken.RaiseScore -= Chicken_RaiseScore;
+        Chick.RaiseScore -= Chick_RaiseScore;
     }
 
-    void FXManager_RaiseScore(int points) {
+    void Chicken_RaiseScore(int points) {
+        m_score += points;
+    }
+
+    void Chick_RaiseScore(int points) {
         m_score += points;
     }
 

@@ -39,6 +39,16 @@ public class MovingEntity : MonoBehaviour {
         }
     }
 
+    //TODO: Para intentar solucionar lo del pico que da dos veces, alejar la gallina cuando se le ataque.
+    /*
+    void OnTriggerEnter(Collider other) {
+        if (other.name == "Chicken") {
+            Debug.Log("PICOOOOOOOOOOOOOOO");
+            transform.position -= currentVelocity.normalized * Time.deltaTime * 8;
+        }
+    }
+     */
+
     public void OnTriggerStayChild(Collider other) {
         if (other.tag == "Wall" || other.tag == "Player") {
             transform.position -= currentVelocity.normalized * Time.deltaTime * 8;
