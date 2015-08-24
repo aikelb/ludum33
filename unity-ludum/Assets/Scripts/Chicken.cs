@@ -5,7 +5,10 @@ public class Chicken : MovingEntity {
 
 	public static event FXManager.FxEvent OnDeath;
     public static event ScoreManager.ScoreEvent RaiseScore;
+	public AudioClip pop;
+
 	private Animator animatorChicken;
+	private AudioSource source;
 
 	enum states {
 		Idle,
@@ -42,6 +45,8 @@ public class Chicken : MovingEntity {
 
 	void Awake () {
 		animatorChicken = GetComponent<Animator>();
+		source = GetComponent<AudioSource>();
+		
 	}
 	
 	void Start () {
@@ -210,10 +215,14 @@ public class Chicken : MovingEntity {
     }
 	
 	void OnDestroy () {
+
+		source.PlayOneShot(pop);
+		Debug.Log ("PEPE");
         if (RaiseScore != null)
             RaiseScore(50);
 		if (OnDeath != null)
 			OnDeath(transform.position);
+
 	}
 	
 	void OnEnable () {

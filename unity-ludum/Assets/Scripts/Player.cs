@@ -4,8 +4,10 @@ using System.Collections;
 public class Player : MovingEntity {
 	
 	public static event FXManager.FxEvent OnDeath;
+	public AudioClip attacksound;
 
 	private Animator playerAnimator;
+	private AudioSource source;
 
 	private float xAxis;
 	private float yAxis;
@@ -26,6 +28,7 @@ public class Player : MovingEntity {
 	void Awake () {
 		desiredOrientation = currentVelocity = Vector3.zero;
 		playerAnimator = GetComponent<Animator>();
+		source = GetComponent<AudioSource>();
 	}
 	
 	void Update () {
@@ -100,6 +103,7 @@ public class Player : MovingEntity {
 			if (Input.GetKeyDown(KeyCode.Space)) {
 				playerAnimator.SetBool("isAttackSide", true);
 				Invoke("StopAttack",0.4f);
+				source.PlayOneShot(attacksound);
 			}
 		}
 		//Atacar hacia arriba o hacia abajo.
@@ -108,12 +112,14 @@ public class Player : MovingEntity {
 				if (Input.GetKeyDown (KeyCode.Space)) {
 					playerAnimator.SetBool("isAttackUp", true);
 					Invoke("StopAttack",0.4f);
+					source.PlayOneShot(attacksound);
 				}
 			}
 			if (viewDirection == PlayerViewDirection.isViewDown && playerAnimator.GetBool("isAttackDown") == false) {
 				if (Input.GetKeyDown (KeyCode.Space)) {
 					playerAnimator.SetBool("isAttackDown", true);
 					Invoke("StopAttack",0.4f);
+					source.PlayOneShot(attacksound);
 				}
 			}
 		}
