@@ -12,23 +12,25 @@ public class Nest : MonoBehaviour {
     }
 
     void SetChickensAngry() {
-        Debug.Log("Gallinas furiosas");
         foreach (Chicken chicken in m_chickens) {
-            chicken.PlayerKillChick();
+            if (chicken != null)
+                chicken.PlayerKillChick();
         }
     }
 
     void OnTriggerEnter(Collider other) {
-        Debug.Log("He entrado en la zona");
-        foreach(Chicken chicken in m_chickens) {
-            chicken.PlayerInsideNest();
-        }
+        if (other.tag == "Player")
+            foreach(Chicken chicken in m_chickens) {
+                if (chicken != null)
+                    chicken.PlayerInsideNest();
+            }
     }
 
     void OnTriggerExit(Collider other) {
-        Debug.Log("He salido de la zona");
-        foreach (Chicken chicken in m_chickens) {
-            chicken.PlayerExitNest();
-        }
+        if (other.tag == "Player")
+            foreach (Chicken chicken in m_chickens) {
+                if (chicken != null)
+                    chicken.PlayerExitNest();
+            }
     }
 }

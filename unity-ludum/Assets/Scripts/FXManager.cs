@@ -14,12 +14,11 @@ public class FXManager : MonoBehaviour {
 	public GameObject WhiteChickenExplosion;
 	public GameObject BrownChickenExplosion;
 	public GameObject ChickExplosion;
+	public GameObject bloodParticles;
 	
 	public AudioClip chickenpop;
 	public AudioClip chickpop;
-	public AudioClip peck;
-
-
+	public AudioClip attack;
 
 	[SerializeField]
 	AudioSource aSource;
@@ -35,6 +34,7 @@ public class FXManager : MonoBehaviour {
 		AddPool(WhiteChickenExplosion);
 		AddPool(BrownChickenExplosion);
 		AddPool(ChickExplosion);
+		AddPool(bloodParticles);
 	}
 	
 	void AddPool (GameObject prefab) {
@@ -61,12 +61,18 @@ public class FXManager : MonoBehaviour {
         Chick.OnDeath += Chick_OnDeath;
 		Chicken.OnDeath += Chicken_OnDeath;
 		Player.OnDeath += Player_OnDeath;
+		Life.OnDamage += Life_OnDamage;
+		Chicken.OnAttack += OnAttack;
+		Player.OnAttack += OnAttack;
     }
 
     void OnDisable() {
         Chick.OnDeath -= Chick_OnDeath;
 		Chicken.OnDeath -= Chicken_OnDeath;
 		Player.OnDeath -= Player_OnDeath;
+		Life.OnDamage -= Life_OnDamage;
+		Chicken.OnAttack -= OnAttack;
+		Player.OnAttack -= OnAttack;
     }
 
     void Chick_OnDeath(Vector3 position) {
@@ -82,6 +88,14 @@ public class FXManager : MonoBehaviour {
 	void Player_OnDeath (Vector3 position) {
 		PlayParticle(WhiteChickenExplosion, position);
 		PlayAudio(chickenpop);
+	}
+	
+	void Life_OnDamage (Vector3 position) {
+		PlayParticle(bloodParticles, position);
+	}
+	
+	void OnAttack (Vector3 position) {
+		PlayAudio(attack);
 	}
 
 }

@@ -5,7 +5,12 @@ public class Chick : MonoBehaviour {
 
     public static event FXManager.FxEvent OnDeath;
     public static event ScoreManager.ScoreEvent RaiseScore;
-	public static event NecklaceManager.NecklaceEvent RaiseNecklace;
+    public static event NecklaceManager.NecklaceEvent RaiseNecklace;
+
+    
+    void Awake () {
+        GetComponent<AudioSource>().PlayDelayed(Random.value);
+    }
 
     void OnDestroy() {
         SendMessageUpwards("SetChickensAngry", SendMessageOptions.RequireReceiver);

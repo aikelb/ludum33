@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Player : MovingEntity {
 	
+	public static event FXManager.FxEvent OnAttack;
 	public static event FXManager.FxEvent OnDeath;
 	public AudioClip attacksound;
 
@@ -11,6 +12,7 @@ public class Player : MovingEntity {
 
 	private float xAxis;
 	private float yAxis;
+	float lastAttack = 0;
 
 	private enum PlayerDirection {
 		isOnX,
@@ -98,29 +100,27 @@ public class Player : MovingEntity {
 	}
 
 	void Attack() {
-		//Atacar a los lados.
-		if (direction == PlayerDirection.isOnX && playerAnimator.GetBool("isAttackSide") == false) {
-			if (Input.GetKeyDown(KeyCode.Space)) {
+		if (Input.GetKeyDown(KeyCode.Space) && (Time.time - lastAttack) > 0.5f) {
+			lastAttack = Time.time;
+			if (OnAttack != null)
+				OnAttack(transform.position);
+			//Atacar a los lados.
+			if (direction == PlayerDirection.isOnX && playerAnimator.GetBool("isAttackSide") == false) {
 				playerAnimator.SetBool("isAttackSide", true);
 				Invoke("StopAttack",0.4f);
 				source.PlayOneShot(attacksound);
 			}
-		}
-		//Atacar hacia arriba o hacia abajo.
-		if (direction == PlayerDirection.isOnY) {
-			if (viewDirection == PlayerViewDirection.isViewUp && playerAnimator.GetBool("isAttackUp") == false) {
-				if (Input.GetKeyDown (KeyCode.Space)) {
+			//Atacar hacia arriba o hacia abajo.
+			if (direction == PlayerDirection.isOnY) {
+				if (viewDirection == PlayerViewDirection.isViewUp && playerAnimator.GetBool("isAttackUp") == false) {
 					playerAnimator.SetBool("isAttackUp", true);
 					Invoke("StopAttack",0.4f);
 					source.PlayOneShot(attacksound);
 				}
 			}
 			if (viewDirection == PlayerViewDirection.isViewDown && playerAnimator.GetBool("isAttackDown") == false) {
-				if (Input.GetKeyDown (KeyCode.Space)) {
-					playerAnimator.SetBool("isAttackDown", true);
-					Invoke("StopAttack",0.4f);
-					source.PlayOneShot(attacksound);
-				}
+				playerAnimator.SetBool("isAttackDown", true);
+				Invoke("StopAttack",0.4f);
 			}
 		}
 	}

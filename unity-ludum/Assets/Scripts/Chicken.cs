@@ -5,8 +5,9 @@ public class Chicken : MovingEntity {
 
 	public static event FXManager.FxEvent OnDeath;
     public static event ScoreManager.ScoreEvent RaiseScore;
-	public AudioClip pop;
 
+	public static event FXManager.FxEvent OnAttack;
+	
 	private Animator animatorChicken;
 	private AudioSource source;
 
@@ -24,20 +25,17 @@ public class Chicken : MovingEntity {
 	bool alert = false;
 	Vector3 myDesiredOrientation = Vector3.zero;
 	
-	public float attackDistance = 1f;
+	public float attackDistance = 2.5f;
 	bool attacking = false;
 	float lastAttack = 0;
 	
-	[Header("Wandering Setings")]
-	public float desireOrientationChance = 0.05f;
-	public float idleChance = 0.005f;
+	float desireOrientationChance = 0.05f;
+	float idleChance = 0.005f;
 	
-	[Header("Chase Setings")]
-	public float chaseMaxDistance = 9f;
-	public float chaseSpeedModifier = 1.5f;
+	float chaseMaxDistance = 9f;
+	float chaseSpeedModifier = 1.5f;
 	
-	[Header("Angry Setings")]
-	public float angrySpeedModifier = 2.5f;
+	float angrySpeedModifier = 2.5f;
 	
 	void OnValidate () {
 		player = FindObjectOfType<Player>().transform;
@@ -130,7 +128,8 @@ public class Chicken : MovingEntity {
 		} else {
 			animatorChicken.SetBool ("isMoveUp", false);
 			animatorChicken.SetBool ("isMoveDown", false);
-			animatorChicken.SetBool ("isAttackSide", false);
+			if (myDesiredOrientation.x == 0)
+				animatorChicken.SetBool ("isAttackSide", false);
 			animatorChicken.SetBool ("isAttackUp", false);
 			animatorChicken.SetBool ("isAttackDown", false);
 		}
@@ -144,10 +143,12 @@ public class Chicken : MovingEntity {
 			animatorChicken.SetBool ("isAttackDown", false);
 		}
 		
-		if (attacking && (Time.time - lastAttack) > 1f) {
+		if (attacking && (Time.time - lastAttack) > 0.45f) {
+			if (OnAttack != null)
+				OnAttack(transform.position);
 			lastAttack = Time.time;
 			RaycastHit hit;
-			if (Physics.Raycast(transform.position, myDesiredOrientation.normalized, out hit, attackDistance)) {
+			if (Physics.Raycast(transform.position, myDesiredOrientation.normalized, out hit, 1.4f)) {
 				if (hit.collider.tag == "Player")
 					hit.transform.SendMessage("ReceiveDamage", 1);
 			}
@@ -213,9 +214,6 @@ public class Chicken : MovingEntity {
     }
 	
 	void OnDestroy () {
-
-		source.PlayOneShot(pop);
-		Debug.Log ("PEPE");
         if (RaiseScore != null)
             RaiseScore(50);
 		if (OnDeath != null)
@@ -234,6 +232,7 @@ public class Chicken : MovingEntity {
 	void Player_OnDeath (Vector3 position) {
 		state = states.Idle;
 		StopCoroutine(SMC());
+		attacking = false;
 	}
 	
 }

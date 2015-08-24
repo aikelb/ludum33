@@ -8,6 +8,12 @@ public class ScoreManager : MonoBehaviour {
 
     int m_score = 0;
 
+    private Text m_pointsScore;
+
+    void Start() {
+        m_pointsScore = GameObject.Find("PointsScore").GetComponent<Text>();
+    }
+
     void OnEnable() {
         Chicken.RaiseScore += Chicken_RaiseScore;
         Chick.RaiseScore += Chick_RaiseScore;
@@ -27,6 +33,6 @@ public class ScoreManager : MonoBehaviour {
     }
 
     void Update() {
-        GameObject.Find("PointsScore").GetComponent<Text>().text = m_score.ToString();
+        m_pointsScore.text = m_score.ToString();
     }
 }
