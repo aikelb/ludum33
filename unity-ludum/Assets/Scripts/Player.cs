@@ -5,10 +5,8 @@ public class Player : MovingEntity {
 	
 	public static event FXManager.FxEvent OnAttack;
 	public static event FXManager.FxEvent OnDeath;
-	public AudioClip attacksound;
 
 	private Animator playerAnimator;
-	private AudioSource source;
 
 	private float xAxis;
 	private float yAxis;
@@ -27,16 +25,18 @@ public class Player : MovingEntity {
 	private PlayerDirection direction;
 	private PlayerViewDirection viewDirection;
 
+	Vector3 myLastOrientation = Vector3.zero;
+
 	void Awake () {
 		desiredOrientation = currentVelocity = Vector3.zero;
 		playerAnimator = GetComponent<Animator>();
-		source = GetComponent<AudioSource>();
 	}
 	
 	void Update () {
 		ReadInput();
-		Move();
+		myLastOrientation = desiredOrientation == Vector3.zero ? myLastOrientation : desiredOrientation;
 		Attack();
+		Move();
 	}
 	
 	void ReadInput () {
@@ -102,20 +102,25 @@ public class Player : MovingEntity {
 	void Attack() {
 		if (Input.GetKeyDown(KeyCode.Space) && (Time.time - lastAttack) > 0.5f) {
 			lastAttack = Time.time;
+			
+			RaycastHit hit;
+			if (Physics.Raycast(transform.position, myLastOrientation, out hit, 2.5f)) {
+				if (hit.collider.tag == "ChickenBody")
+					hit.collider.SendMessageUpwards("ReceiveDamage", 1, SendMessageOptions.RequireReceiver);
+			}
+			
 			if (OnAttack != null)
 				OnAttack(transform.position);
 			//Atacar a los lados.
 			if (direction == PlayerDirection.isOnX && playerAnimator.GetBool("isAttackSide") == false) {
 				playerAnimator.SetBool("isAttackSide", true);
 				Invoke("StopAttack",0.4f);
-				source.PlayOneShot(attacksound);
 			}
 			//Atacar hacia arriba o hacia abajo.
 			if (direction == PlayerDirection.isOnY) {
 				if (viewDirection == PlayerViewDirection.isViewUp && playerAnimator.GetBool("isAttackUp") == false) {
 					playerAnimator.SetBool("isAttackUp", true);
 					Invoke("StopAttack",0.4f);
-					source.PlayOneShot(attacksound);
 				}
 			}
 			if (viewDirection == PlayerViewDirection.isViewDown && playerAnimator.GetBool("isAttackDown") == false) {
