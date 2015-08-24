@@ -9,7 +9,6 @@ public class Chicken : MovingEntity {
 	public static event FXManager.FxEvent OnAttack;
 	
 	private Animator animatorChicken;
-	private AudioSource source;
 
 	enum states {
 		Idle,
@@ -45,8 +44,6 @@ public class Chicken : MovingEntity {
 
 	void Awake () {
 		animatorChicken = GetComponent<Animator>();
-		source = GetComponent<AudioSource>();
-		
 	}
 	
 	void Start () {
