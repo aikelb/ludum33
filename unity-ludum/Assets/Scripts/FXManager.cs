@@ -47,6 +47,8 @@ public class FXManager : MonoBehaviour {
 	
 	void PlayParticle (GameObject prefab, Vector3 position) {
 		int i = poolIndex[prefab];
+		if (pool[prefab][i] == null)
+			return;
 		poolIndex[prefab] = (poolIndex[prefab] + 1) % length;
 		pool[prefab][i].transform.position = position;
 		pool[prefab][i].Play();
