@@ -100,6 +100,7 @@ public class Player : MovingEntity {
 			if (Input.GetKeyDown(KeyCode.Space)) {
 				playerAnimator.SetBool("isAttackSide", true);
 				Invoke("StopAttack",0.4f);
+				GetComponent<AudioSource>().Play();
 			}
 		}
 		//Atacar hacia arriba o hacia abajo.
@@ -108,12 +109,14 @@ public class Player : MovingEntity {
 				if (Input.GetKeyDown (KeyCode.Space)) {
 					playerAnimator.SetBool("isAttackUp", true);
 					Invoke("StopAttack",0.4f);
+					GetComponent<AudioSource>().Play();
 				}
 			}
 			if (viewDirection == PlayerViewDirection.isViewDown && playerAnimator.GetBool("isAttackDown") == false) {
 				if (Input.GetKeyDown (KeyCode.Space)) {
 					playerAnimator.SetBool("isAttackDown", true);
 					Invoke("StopAttack",0.4f);
+					GetComponent<AudioSource>().Play();
 				}
 			}
 		}
