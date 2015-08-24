@@ -18,8 +18,6 @@ public class FXManager : MonoBehaviour {
 	
 	public AudioClip chickenpop;
 	public AudioClip chickpop;
-	public AudioClip peck;
-	public AudioClip coc;
 	public AudioClip attack;
 
 	[SerializeField]
