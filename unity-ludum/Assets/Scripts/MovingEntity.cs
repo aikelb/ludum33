@@ -22,36 +22,18 @@ public class MovingEntity : MonoBehaviour {
 		Move(1f);
 	}
 
-    /*
-    void OnTriggerStay(Collider other) {        
+    void OnTriggerStay(Collider other) {
+        if (other.transform == transform)
+            return;
+        if (other.transform.parent == transform)
+            return; 
+        
+        Vector3 towardsTarget = other.transform.position - transform.position;
         if (other.tag == "Wall") {
             transform.position -= currentVelocity.normalized * Time.deltaTime * 8;
-        }
-    }
-     */
-
-    //Funciones para intentar controlar las colisiones, no son 100% fiables, habría que mejorarlas.
-    void OnTriggerStay(Collider other) {
-        if (gameObject.name != "Chicken") {
-            if (other.tag == "Wall" || other.tag == "ChickenBody") {
-                transform.position -= currentVelocity.normalized * Time.deltaTime * 8;
-            }
-        }
-    }
-
-    //TODO: Para intentar solucionar lo del pico que da dos veces, alejar la gallina cuando se le ataque.
-    /*
-    void OnTriggerEnter(Collider other) {
-        if (other.name == "Chicken") {
-            Debug.Log("PICOOOOOOOOOOOOOOO");
+        } else if ((other.tag == "ChickenBody" || other.tag == "Player") && towardsTarget.magnitude < 1.8f) {
             transform.position -= currentVelocity.normalized * Time.deltaTime * 8;
         }
     }
-     */
-
-    public void OnTriggerStayChild(Collider other) {
-        if (other.tag == "Wall" || other.tag == "Player") {
-            transform.position -= currentVelocity.normalized * Time.deltaTime * 8;
-        }
-    }
+    
 }

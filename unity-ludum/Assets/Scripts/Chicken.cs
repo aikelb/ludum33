@@ -22,13 +22,15 @@ public class Chicken : MovingEntity {
 	Vector3 myDesiredOrientation = Vector3.zero;
 	
 	public float attackDistance = 1f;
+	bool attacking = false;
+	float lastAttack = 0;
 	
 	[Header("Wandering Setings")]
-	public float desireOrientationChance = 0.1f;
-	public float idleChance = 0.5f;
+	public float desireOrientationChance = 0.05f;
+	public float idleChance = 0.005f;
 	
 	[Header("Chase Setings")]
-	public float chaseMaxDistance = 2f;
+	public float chaseMaxDistance = 9f;
 	public float chaseSpeedModifier = 1.5f;
 	
 	[Header("Angry Setings")]
@@ -48,7 +50,6 @@ public class Chicken : MovingEntity {
 
 	IEnumerator SMC () {
 		while (true) {
-			Debug.Log("Starting state: " + state);
 			yield return StartCoroutine(state.ToString());
 		}
 	}
@@ -83,29 +84,82 @@ public class Chicken : MovingEntity {
 	void DesireOrientation () {
 		if (Random.value < 0.5f) {
 			myDesiredOrientation += Vector3.up;
-			animatorChicken.Play ("Up");
 		} else if (Random.value < 0.75f) {
 			myDesiredOrientation += Vector3.down;
-			animatorChicken.Play ("Down");
 		}
 
 		if (Random.value < 0.5f) {
 			myDesiredOrientation += Vector3.left;
-			animatorChicken.Play ("Left");
+			this.transform.localScale = new Vector3(-1, 1, 1);
 		} else if (Random.value < 0.75f) {
 			myDesiredOrientation += Vector3.right;
-			animatorChicken.Play ("Right");
+			this.transform.localScale = new Vector3(1, 1, 1);
 		}
-
 		myDesiredOrientation.Normalize();
+	}
+	
+	void LateUpdate () {
+		if (myDesiredOrientation.x != 0) {
+			animatorChicken.SetBool ("isMoveSide", true);
+			animatorChicken.SetBool("isAttackSide", attacking);
+			
+			if (myDesiredOrientation.x > 0)
+				transform.localScale = new Vector3(1, 1, 1);
+			else
+				transform.localScale = new Vector3(-1, 1, 1);
+		}
+		if ((Mathf.Abs(myDesiredOrientation.y) > 0.5f) && (Mathf.Abs(myDesiredOrientation.y) > Mathf.Abs(myDesiredOrientation.x))) {
+			animatorChicken.SetBool ("isMoveSide", false);
+			animatorChicken.SetBool("isAttackSide", false);
+			if (myDesiredOrientation.y != 0) {
+				if (myDesiredOrientation.y > 0) {
+					animatorChicken.SetBool ("isMoveUp", true);
+					animatorChicken.SetBool ("isMoveDown", false);
+					animatorChicken.SetBool ("isAttackUp", attacking);
+				} else {
+					animatorChicken.SetBool ("isMoveUp", false);
+					animatorChicken.SetBool ("isMoveDown", true);
+					animatorChicken.SetBool ("isAttackDown", attacking);
+				}
+			}
+		} else {
+			animatorChicken.SetBool ("isMoveUp", false);
+			animatorChicken.SetBool ("isMoveDown", false);
+			animatorChicken.SetBool ("isAttackSide", false);
+			animatorChicken.SetBool ("isAttackUp", false);
+			animatorChicken.SetBool ("isAttackDown", false);
+		}
+		
+		if (state == states.Idle) {
+			animatorChicken.SetBool ("isMoveSide", false);
+			animatorChicken.SetBool ("isMoveUp", false);
+			animatorChicken.SetBool ("isMoveDown", false);
+			animatorChicken.SetBool ("isAttackSide", false);
+			animatorChicken.SetBool ("isAttackUp", false);
+			animatorChicken.SetBool ("isAttackDown", false);
+		}
+		
+		if (attacking && (Time.time - lastAttack) > 1f) {
+			lastAttack = Time.time;
+			RaycastHit hit;
+			if (Physics.Raycast(transform.position, myDesiredOrientation.normalized, out hit, attackDistance)) {
+				if (hit.collider.tag == "Player")
+					hit.transform.SendMessage("ReceiveDamage", 1);
+			}
+		}
 	}
 	
 	IEnumerator Chasing () {
 		while (state == states.Chasing) {
+			if (player == null)
+				yield break;
+			
 			Vector3 towardsPlayer = player.position - transform.position;
 			
 			if (!alert && towardsPlayer.magnitude > chaseMaxDistance)
 				state = states.Idle;
+			
+			attacking = (towardsPlayer.magnitude < attackDistance);
 			
 			myDesiredOrientation = towardsPlayer.normalized;
 			desiredOrientation = myDesiredOrientation;
@@ -118,6 +172,9 @@ public class Chicken : MovingEntity {
 	IEnumerator Angry () {
 		while (state == states.Angry) {
 			Vector3 towardsPlayer = player.position - transform.position;
+			if (player == null)
+				yield break;
+			attacking = (towardsPlayer.magnitude < attackDistance);
 			
 			myDesiredOrientation = towardsPlayer.normalized;
 			desiredOrientation = myDesiredOrientation;
@@ -155,6 +212,19 @@ public class Chicken : MovingEntity {
             RaiseScore(50);
 		if (OnDeath != null)
 			OnDeath(transform.position);
+	}
+	
+	void OnEnable () {
+		Player.OnDeath += Player_OnDeath;
+	}
+	
+	void OnDisable () {
+		Player.OnDeath -= Player_OnDeath;
+	}
+	
+	void Player_OnDeath (Vector3 position) {
+		state = states.Idle;
+		StopCoroutine(SMC());
 	}
 	
 }
