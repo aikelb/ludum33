@@ -5,9 +5,13 @@ using UnityEngine.UI;
 public class NecklaceManager : MonoBehaviour {
 
 	public delegate void NecklaceEvent(int picks);
+	public delegate void LevelCompleted();
+	public static event LevelCompleted OnLevelCompleted; 
 
 	private int picksNumber;
 	private int currentPick;
+	
+	public GameObject pickPrefab;
 
 	// Use this for initialization
 	void Start () {
@@ -25,17 +29,16 @@ public class NecklaceManager : MonoBehaviour {
 
 	void Chick_RaiseNecklace(int picks) {
 		AddPicksToNecklace (picks);
-	}
-
-	// Update is called once per frame
-	void Update () {
-	}
-
-	void PrepareNecklace() {
+		currentPick += picks;
+		if (currentPick >= picksNumber && OnLevelCompleted != null) {
+			OnLevelCompleted();
+		} 
 	}
 
 	void AddPicksToNecklace(int picks) {
 		for (int i = 0; i < picks; i++) {
+			GameObject p = GameObject.Instantiate(pickPrefab) as GameObject;
+			p.transform.SetParent(transform);
 		}
 	}
 }

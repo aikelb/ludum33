@@ -218,7 +218,6 @@ public class Chicken : MovingEntity {
             RaiseScore(50);
 		if (OnDeath != null)
 			OnDeath(transform.position);
-
 	}
 	
 	void OnEnable () {
