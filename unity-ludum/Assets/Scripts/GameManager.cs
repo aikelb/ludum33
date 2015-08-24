@@ -30,6 +30,6 @@ public class GameManager : MonoBehaviour {
 	}
 	
 	void Menu () {
-		Application.LoadLevel("Home");
+		Application.LoadLevel("YouLose");
 	}
 }
