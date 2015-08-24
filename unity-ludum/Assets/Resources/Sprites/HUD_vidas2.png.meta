@@ -1,0 +1,202 @@
+fileFormatVersion: 2
+guid: c30da9e2a65a8434a95a1a1334686fbd
+timeCreated: 1440433997
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: HUD_vidas2_0
+    21300002: HUD_vidas2_6
+    21300004: HUD_vidas2_12
+    21300006: HUD_vidas2_18
+    21300008: HUD_vidas2_24
+    21300010: HUD_vidas2_30
+    21300012: HUD_vidas2_36
+    21300014: HUD_vidas2_42
+    21300016: HUD_vidas2_48
+    21300018: HUD_vidas2_54
+    21300020: HUD_vidas2_60
+    21300022: HUD_vidas2_66
+    21300024: HUD_vidas2_72
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings:
+  - buildTarget: Standalone
+    maxTextureSize: 8192
+    textureFormat: -3
+    compressionQuality: 50
+  spriteSheet:
+    sprites:
+    - name: HUD_vidas2_0
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 44
+        width: 226
+        height: 48
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: HUD_vidas2_6
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 44
+        width: 226
+        height: 48
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: HUD_vidas2_12
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 44
+        width: 226
+        height: 48
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: HUD_vidas2_18
+      rect:
+        serializedVersion: 2
+        x: 776
+        y: 44
+        width: 226
+        height: 48
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: HUD_vidas2_24
+      rect:
+        serializedVersion: 2
+        x: 1032
+        y: 44
+        width: 226
+        height: 48
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: HUD_vidas2_30
+      rect:
+        serializedVersion: 2
+        x: 1288
+        y: 44
+        width: 226
+        height: 48
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: HUD_vidas2_36
+      rect:
+        serializedVersion: 2
+        x: 1544
+        y: 44
+        width: 226
+        height: 48
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: HUD_vidas2_42
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 44
+        width: 226
+        height: 48
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: HUD_vidas2_48
+      rect:
+        serializedVersion: 2
+        x: 2056
+        y: 44
+        width: 226
+        height: 48
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: HUD_vidas2_54
+      rect:
+        serializedVersion: 2
+        x: 2312
+        y: 44
+        width: 226
+        height: 48
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: HUD_vidas2_60
+      rect:
+        serializedVersion: 2
+        x: 2568
+        y: 44
+        width: 226
+        height: 48
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: HUD_vidas2_66
+      rect:
+        serializedVersion: 2
+        x: 2824
+        y: 44
+        width: 226
+        height: 48
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: HUD_vidas2_72
+      rect:
+        serializedVersion: 2
+        x: 3080
+        y: 44
+        width: 226
+        height: 48
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
