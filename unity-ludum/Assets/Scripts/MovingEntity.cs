@@ -30,7 +30,7 @@ public class MovingEntity : MonoBehaviour {
         
         Vector3 towardsTarget = other.transform.position - transform.position;
         if (other.tag == "Wall") {
-            transform.position -= currentVelocity.normalized * Time.deltaTime * 8;
+            transform.position -= currentVelocity.normalized * Time.deltaTime * 18;
         } else if ((other.tag == "ChickenBody" || other.tag == "Player") && towardsTarget.magnitude < 1.8f) {
             transform.position -= currentVelocity.normalized * Time.deltaTime * 8;
         }
