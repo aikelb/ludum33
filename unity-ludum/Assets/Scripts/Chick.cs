@@ -13,7 +13,8 @@ public class Chick : MonoBehaviour {
     }
 
     void OnDestroy() {
-        SendMessageUpwards("SetChickensAngry", SendMessageOptions.RequireReceiver);
+        if (GetComponent<Life>().m_life <= 0)
+            SendMessageUpwards("SetChickensAngry", SendMessageOptions.RequireReceiver);
         if (RaiseScore != null) {
             RaiseScore(100);
         }

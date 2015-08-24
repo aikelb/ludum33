@@ -24,6 +24,11 @@ public class LifeUIManager : MonoBehaviour {
 
     void Life_DecreseLifeUI() {
         m_cont++;
-        m_lifeUi.sprite = life_array[m_cont];
+        if (m_cont <= life_array.Length) {
+            m_lifeUi.sprite = life_array[m_cont];
+        }
+        else {
+            Debug.LogError("Intentas acceder a una imagen de vida que no existe, comprueba vida de player", this);
+        }
     }
 }

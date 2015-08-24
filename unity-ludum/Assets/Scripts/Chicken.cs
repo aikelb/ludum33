@@ -38,7 +38,9 @@ public class Chicken : MovingEntity {
 	float angrySpeedModifier = 2.5f;
 	
 	void OnValidate () {
-		player = FindObjectOfType<Player>().transform;
+		Player p = FindObjectOfType<Player>();
+		if (p != null)
+			player = p.transform;
 	}
 
 	void Awake () {
@@ -218,7 +220,6 @@ public class Chicken : MovingEntity {
             RaiseScore(50);
 		if (OnDeath != null)
 			OnDeath(transform.position);
-
 	}
 	
 	void OnEnable () {
