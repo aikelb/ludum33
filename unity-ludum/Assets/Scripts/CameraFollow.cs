@@ -8,6 +8,7 @@ public class CameraFollow : MonoBehaviour {
 	
 	// Update is called once per frame
 	void LateUpdate () {
-        transform.position = m_objetive.transform.position + m_distObjective;
+		if (m_objetive != null)
+        	transform.position = m_objetive.transform.position + m_distObjective;
 	}
 }

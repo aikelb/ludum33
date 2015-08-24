@@ -45,10 +45,10 @@ public class Player : MovingEntity {
 			playerAnimator.SetBool ("isMoveSide", true);
 			if (xAxis > 0) {
 				desiredOrientation += Vector3.right;
-				this.transform.localScale = new Vector3(1, 1, 1);
+				transform.localScale = new Vector3(1, 1, 1);
 			} else {
 				desiredOrientation += Vector3.left;
-				this.transform.localScale = new Vector3(-1, 1, 1);
+				transform.localScale = new Vector3(-1, 1, 1);
 			}
 		} else {
 			playerAnimator.SetBool ("isMoveSide", false);
@@ -56,7 +56,7 @@ public class Player : MovingEntity {
 		//Moviemiento en Y
 		if (yAxis != 0 && xAxis == 0) {
 			direction = PlayerDirection.isOnY;
-			this.transform.localScale = new Vector3 (1, 1, 1);
+			transform.localScale = new Vector3 (1, 1, 1);
 			if (yAxis > 0) {
 				desiredOrientation += Vector3.up;
 				playerAnimator.SetBool ("isMoveUp", true);
@@ -76,9 +76,9 @@ public class Player : MovingEntity {
 			if (direction == PlayerDirection.isOnX) {
 				playerAnimator.SetBool ("isMoveSide", true);
 				if (xAxis > 0) {
-					this.transform.localScale = new Vector3(1, 1, 1);
+					transform.localScale = new Vector3(1, 1, 1);
 				} else {
-					this.transform.localScale = new Vector3(-1, 1, 1);
+					transform.localScale = new Vector3(-1, 1, 1);
 				}
 			} else {
 				if (yAxis > 0) {
