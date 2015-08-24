@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class FXManager : MonoBehaviour {
 
 	public delegate void FxEvent(Vector3 position);
+
     	
 	int length = 10;
 	Dictionary<GameObject, ParticleSystem[]> pool;
@@ -15,12 +16,12 @@ public class FXManager : MonoBehaviour {
 	public GameObject ChickExplosion;
 	public GameObject bloodParticles;
 	
-	public AudioClip chickenAudio;
-	public AudioClip chickAudio;
+	public AudioClip chickenpop;
+	public AudioClip chickpop;
 	public AudioClip peck;
 	public AudioClip coc;
 	public AudioClip attack;
-	
+
 	[SerializeField]
 	AudioSource aSource;
 	
@@ -78,17 +79,17 @@ public class FXManager : MonoBehaviour {
 
     void Chick_OnDeath(Vector3 position) {
 		PlayParticle(ChickExplosion, position);
-		PlayAudio(chickAudio);
+		PlayAudio(chickpop);
     }
 	
 	void Chicken_OnDeath (Vector3 position) {
 		PlayParticle(BrownChickenExplosion, position);
-		PlayAudio(chickenAudio);
+		PlayAudio(chickenpop);
 	}
 	
 	void Player_OnDeath (Vector3 position) {
 		PlayParticle(WhiteChickenExplosion, position);
-		PlayAudio(chickenAudio);
+		PlayAudio(chickenpop);
 	}
 	
 	void Life_OnDamage (Vector3 position) {

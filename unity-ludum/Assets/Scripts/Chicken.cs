@@ -5,8 +5,11 @@ public class Chicken : MovingEntity {
 
 	public static event FXManager.FxEvent OnDeath;
     public static event ScoreManager.ScoreEvent RaiseScore;
+
 	public static event FXManager.FxEvent OnAttack;
+	
 	private Animator animatorChicken;
+	private AudioSource source;
 
 	enum states {
 		Idle,
@@ -40,6 +43,8 @@ public class Chicken : MovingEntity {
 
 	void Awake () {
 		animatorChicken = GetComponent<Animator>();
+		source = GetComponent<AudioSource>();
+		
 	}
 	
 	void Start () {
@@ -138,7 +143,7 @@ public class Chicken : MovingEntity {
 			animatorChicken.SetBool ("isAttackDown", false);
 		}
 		
-		if (attacking && (Time.time - lastAttack) > 0.5f) {
+		if (attacking && (Time.time - lastAttack) > 0.45f) {
 			if (OnAttack != null)
 				OnAttack(transform.position);
 			lastAttack = Time.time;
@@ -213,6 +218,7 @@ public class Chicken : MovingEntity {
             RaiseScore(50);
 		if (OnDeath != null)
 			OnDeath(transform.position);
+
 	}
 	
 	void OnEnable () {

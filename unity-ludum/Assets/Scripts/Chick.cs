@@ -5,6 +5,8 @@ public class Chick : MonoBehaviour {
 
     public static event FXManager.FxEvent OnDeath;
     public static event ScoreManager.ScoreEvent RaiseScore;
+    public static event NecklaceManager.NecklaceEvent RaiseNecklace;
+
     
     void Awake () {
         GetComponent<AudioSource>().PlayDelayed(Random.value);
@@ -15,6 +17,9 @@ public class Chick : MonoBehaviour {
         if (RaiseScore != null) {
             RaiseScore(100);
         }
+		if (RaiseNecklace != null) {
+			RaiseNecklace(1);
+		}
         if (OnDeath != null) {
             OnDeath(transform.position);
         }

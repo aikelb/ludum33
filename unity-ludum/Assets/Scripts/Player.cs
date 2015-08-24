@@ -5,8 +5,10 @@ public class Player : MovingEntity {
 	
 	public static event FXManager.FxEvent OnAttack;
 	public static event FXManager.FxEvent OnDeath;
+	public AudioClip attacksound;
 
 	private Animator playerAnimator;
+	private AudioSource source;
 
 	private float xAxis;
 	private float yAxis;
@@ -28,6 +30,7 @@ public class Player : MovingEntity {
 	void Awake () {
 		desiredOrientation = currentVelocity = Vector3.zero;
 		playerAnimator = GetComponent<Animator>();
+		source = GetComponent<AudioSource>();
 	}
 	
 	void Update () {
@@ -105,12 +108,14 @@ public class Player : MovingEntity {
 			if (direction == PlayerDirection.isOnX && playerAnimator.GetBool("isAttackSide") == false) {
 				playerAnimator.SetBool("isAttackSide", true);
 				Invoke("StopAttack",0.4f);
+				source.PlayOneShot(attacksound);
 			}
 			//Atacar hacia arriba o hacia abajo.
 			if (direction == PlayerDirection.isOnY) {
 				if (viewDirection == PlayerViewDirection.isViewUp && playerAnimator.GetBool("isAttackUp") == false) {
 					playerAnimator.SetBool("isAttackUp", true);
 					Invoke("StopAttack",0.4f);
+					source.PlayOneShot(attacksound);
 				}
 			}
 			if (viewDirection == PlayerViewDirection.isViewDown && playerAnimator.GetBool("isAttackDown") == false) {
