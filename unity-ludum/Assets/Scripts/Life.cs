@@ -14,7 +14,7 @@ public class Life : MonoBehaviour {
             OnDamage(transform.position);
         
         m_life -= damage;
-        if ((gameObject.tag == "Player") && (m_life > 0)) {
+        if (gameObject.tag == "Player") {
             if (DecreseLifeUI != null) {
                 DecreseLifeUI();
             }
